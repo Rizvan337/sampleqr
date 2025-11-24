@@ -1,16 +1,16 @@
 backend:
   name: git
-  repo: Rizvan337/sampleqr  # replace with your GitHub repo
-  branch: main  # change if your default branch is 'master'
-  auth_token: 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  # replace with your GitHub classic token
+  repo: Rizvan337/sampleqr
+  branch: main
+  auth_token: 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
 
-media_folder: "docs"     # folder where images are stored
-public_folder: "/docs"   # URL path for the images
+media_folder: "docs"
+public_folder: "/docs"
 
 collections:
   - name: "gallery"
     label: "Gallery"
-    folder: "docs"        # same as media_folder
+    folder: "docs"
     create: true
     delete: true
     fields:
