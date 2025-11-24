@@ -1,7 +1,8 @@
 backend:
-  name: git
-  repo: Rizvan337/sampleqr
-  branch: main
+  name: github
+  repo: Rizvan337/sampleqr   
+  branch: main               
+  auth_token: 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
 
 media_folder: "docs"
 public_folder: "/docs"
