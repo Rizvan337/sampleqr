@@ -2,7 +2,7 @@ backend:
   name: git
   repo: Rizvan337/sampleqr
   branch: main
-  auth_token: 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
+  auth_token: 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
 
 media_folder: "docs"
 public_folder: "/docs"
