@@ -20,7 +20,7 @@
       margin: auto;
     }
 
-    /* Header */
+   
     .header {
       background: #ffffff;
       padding: 25px;
@@ -72,7 +72,7 @@
       border: 1px solid #bae6fd;
     }
 
-    /* Company Details */
+    
     .details {
       background: #ffffff;
       padding: 25px;
@@ -104,7 +104,7 @@
       font-weight: 600;
     }
 
-    /* Documents Section */
+    
     .section-title {
       font-size: 20px;
       font-weight: 700;
@@ -141,7 +141,7 @@
       box-shadow: 0 8px 20px rgba(0,0,0,0.05);
     }
 
-    /* Footer */
+    
     .footer {
       margin-top: 30px;
       background: #ffffff;
@@ -158,13 +158,49 @@
       .logo { width: 70px; height: 70px; }
       .company-info h1 { font-size: 20px; }
     }
+
+
+    /* Fullscreen Image Modal */
+.image-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  justify-content: center;
+  align-items: center;
+}
+
+.image-modal img {
+  max-width: 95%;
+  max-height: 90%;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(255,255,255,0.15);
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  font-size: 40px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  background: rgba(0,0,0,0.5);
+  padding: 5px 15px;
+  border-radius: 50%;
+}
+
   </style>
 </head>
 <body>
 
 <div class="container">
 
-  <!-- Header -->
+  
   <div class="header">
     <div class="header-left">
       <img src="docs/hotelmilanp.png" class="logo" alt="Company Logo">
@@ -176,8 +212,8 @@
     <div class="badge">Verified Business</div>
   </div>
 
-  <!-- Company Details -->
-  <!-- <div class="details">
+   
+   <!-- <div class="details">
     <div class="detail-box">
       <div class="detail-title">Business Name</div>
       <div class="detail-value">Falcon Restaurant LLC</div>
@@ -199,7 +235,7 @@
     </div>
   </div> -->
 
-  <!-- Shop Photo -->
+  
   <h2 class="section-title">Shop Photo</h2>
   <div class="doc-gallery">
     <div class="doc-item">
@@ -208,7 +244,7 @@
     </div>
   </div>
 
-  <!-- Official Documents -->
+  
   <h2 class="section-title">Official Documents</h2>
   <div class="doc-gallery">
     <div class="doc-item">
@@ -233,5 +269,38 @@
 
 </div>
 
+<!-- Fullscreen Image Viewer -->
+<div id="imageModal" class="image-modal">
+    <span class="close-btn" onclick="closeImage()">&times;</span>
+    <img id="fullImage" src="">
+  </div>
+  
+
+  <script>
+    const modal = document.getElementById("imageModal");
+    const fullImage = document.getElementById("fullImage");
+  
+    // Open image
+    document.querySelectorAll(".doc-item img").forEach(img => {
+      img.addEventListener("click", function () {
+        modal.style.display = "flex";
+        fullImage.src = this.src;
+      });
+    });
+  
+    // Close image
+    function closeImage() {
+      modal.style.display = "none";
+      fullImage.src = "";
+    }
+  
+    // Close when clicking outside image
+    modal.addEventListener("click", function (e) {
+      if (e.target === modal) {
+        closeImage();
+      }
+    });
+  </script>
+  
 </body>
 </html>
