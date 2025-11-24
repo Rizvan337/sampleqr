@@ -1,0 +1,16 @@
+backend:
+  name: github
+  repo: YOUR_USERNAME/company-portal # Replace with your GitHub repo
+  branch: main
+
+media_folder: "docs"   # Where images/documents are stored
+public_folder: "docs"
+
+collections:
+  - name: "documents"
+    label: "Documents"
+    folder: "docs"
+    create: true
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "File", name: "file", widget: "file" }
