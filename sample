@@ -20,7 +20,7 @@
       margin: auto;
     }
 
-    /* Header */
+    
     .header {
       background: #ffffff;
       padding: 25px;
@@ -104,44 +104,93 @@
       font-weight: 600;
     }
 
-    /* Documents Section */
+   
     .section-title {
       font-size: 20px;
       font-weight: 700;
-      margin: 15px 0 10px 5px;
+      margin: 10px 0 15px 5px;
     }
 
-    .doc-gallery {
-      display: flex;
-      flex-direction: column;
-      gap: 25px;
+    .doc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
     }
 
-    .doc-item {
+    .doc-card {
       background: #ffffff;
       padding: 20px;
       border-radius: 18px;
       box-shadow: 0 15px 35px rgba(0,0,0,0.06);
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 15px;
       border: 1px solid #f1f5f9;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
     }
 
-    .doc-item h3 {
-      font-size: 18px;
+    .doc-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 45px rgba(0,0,0,0.08);
+    }
+
+    .doc-top {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+    }
+
+    .doc-icon {
+      font-size: 36px;
+    }
+
+    .doc-name {
+      font-size: 17px;
       font-weight: 600;
-      color: #1f2937;
     }
 
-    .doc-item img {
-      width: 100%;
+    .doc-type {
+      font-size: 13px;
+      color: #6b7280;
+    }
+
+    .doc-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn {
+      flex: 1;
+      text-align: center;
+      text-decoration: none;
+      padding: 12px 14px;
       border-radius: 12px;
-      object-fit: contain;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      font-size: 14px;
+      font-weight: 600;
+      transition: 0.2s ease;
+      border: 1px solid transparent;
     }
 
-    /* Footer */
+    .btn-view {
+      background: #2563eb;
+      color: #ffffff;
+    }
+
+    .btn-view:hover {
+      background: #1d4ed8;
+    }
+
+    .btn-download {
+      background: #f1f5f9;
+      color: #1f2937;
+      border-color: #e5e7eb;
+    }
+
+    .btn-download:hover {
+      background: #e5e7eb;
+    }
+
+    
     .footer {
       margin-top: 30px;
       background: #ffffff;
@@ -164,7 +213,7 @@
 
 <div class="container">
 
-  <!-- Header -->
+  
   <div class="header">
     <div class="header-left">
       <img src="docs/hotelmilanp.png" class="logo" alt="Company Logo">
@@ -173,11 +222,12 @@
         <p>Official Business Verification Portal</p>
       </div>
     </div>
+
     <div class="badge">Verified Business</div>
   </div>
 
-  <!-- Company Details -->
-  <!-- <div class="details">
+  
+  <div class="details">
     <div class="detail-box">
       <div class="detail-title">Business Name</div>
       <div class="detail-value">Falcon Restaurant LLC</div>
@@ -197,34 +247,69 @@
       <div class="detail-title">Contact</div>
       <div class="detail-value">+971 5X XXX XXXX</div>
     </div>
-  </div> -->
-
-  <!-- Shop Photo -->
-  <h2 class="section-title">Shop Photo</h2>
-  <div class="doc-gallery">
-    <div class="doc-item">
-      <h3>Front View of the Shop</h3>
-      <img src="docs/li5.jpg" alt="Shop Front">
-    </div>
   </div>
 
-  <!-- Official Documents -->
+  
   <h2 class="section-title">Official Documents</h2>
-  <div class="doc-gallery">
-    <div class="doc-item">
-      <h3>Trade License</h3>
-      <img src="docs/li1.jpg" alt="Trade License">
+
+  <div class="doc-grid">
+
+    <div class="doc-card">
+      <div class="doc-top">
+        <div class="doc-icon">📄</div>
+        <div>
+          <div class="doc-name">Trade License</div>
+          <div class="doc-type">PDF Document</div>
+        </div>
+      </div>
+      <div class="doc-actions">
+        <a href="docs/qr-code (2).png" target="_blank" class="btn btn-view">View</a>
+        <a href="docs/qr-code (2).png" download class="btn btn-download">Download</a>
+      </div>
     </div>
 
-    <div class="doc-item">
-      <h3>Company Certificate</h3>
-      <img src="docs/li2.jpg" alt="Company Certificate">
+    <div class="doc-card">
+        <div class="doc-top">
+          <div class="doc-icon">📄</div>
+          <div>
+            <div class="doc-name">Company Profile</div>
+            <div class="doc-type">Image File</div>
+          </div>
+        </div>
+        <div class="doc-actions">
+          <a href="docs/Brown Minimalist Japanese Restaurant Scan Barcode Instagram Story (1).png" target="_blank" class="btn btn-view">View</a>
+          <a href="docs/Brown Minimalist Japanese Restaurant Scan Barcode Instagram Story (1).png" download class="btn btn-download">Download</a>
+        </div>
+      </div>
+
+    <div class="doc-card">
+      <div class="doc-top">
+        <div class="doc-icon">🖼</div>
+        <div>
+          <div class="doc-name">Company Certificate</div>
+          <div class="doc-type">PDF Document</div>
+        </div>
+      </div>
+      <div class="doc-actions">
+        <a href="docs/falcon group logos.pdf" target="_blank" class="btn btn-view">View</a>
+        <a href="docs/falcon group logos.pdf" download class="btn btn-download">Download</a>
+      </div>
     </div>
 
-    <div class="doc-item">
-      <h3>Company Profile</h3>
-      <img src="docs/li3.jpg" alt="Company Profile">
+    <div class="doc-card">
+      <div class="doc-top">
+        <div class="doc-icon">📄</div>
+        <div>
+          <div class="doc-name">Company Profile</div>
+          <div class="doc-type">Image File</div>
+        </div>
+      </div>
+      <div class="doc-actions">
+        <a href="docs/Brown Minimalist Japanese Restaurant Scan Barcode Instagram Story (1).png" target="_blank" class="btn btn-view">View</a>
+        <a href="docs/Brown Minimalist Japanese Restaurant Scan Barcode Instagram Story (1).png" download class="btn btn-download">Download</a>
+      </div>
     </div>
+
   </div>
 
   <div class="footer">
