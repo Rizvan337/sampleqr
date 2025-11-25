@@ -63,29 +63,6 @@
       color: #6b7280;
     }
 
-    /* .verified-badge {
-      background: #e6f4ea;
-      color: #067647;
-      padding: 8px 15px;
-      border-radius: 50px;
-      font-size: 13px;
-      font-weight: 600;
-      border: 1px solid #a7f3d0;
-    }
-
-    @media (max-width: 600px) {
-  .header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
-
-  .verified-badge {
-    align-self: flex-start;
-    margin-top: 6px;
-  }
-} */
-
 
     .shop-meta {
       display: flex;
@@ -212,72 +189,6 @@
 </head>
 <body>
 
-<!-- PIN LOGIN SCREEN -->
-<div id="pinScreen" style="
-  position: fixed;
-  inset: 0;
-  background: #f3f5f9;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 99999;
-">
-
-  <div style="
-    background: white;
-    padding: 30px 25px;
-    border-radius: 14px;
-    width: 100%;
-    max-width: 360px;
-    text-align: center;
-    border: 1px solid #e5e7eb;
-  ">
-
-    <h2 style="font-size: 20px; margin-bottom: 10px;">Secure Access</h2>
-    <p style="font-size: 13px; color: #6b7280; margin-bottom: 20px;">
-      Enter the official PIN to view business documents
-    </p>
-
-    <input
-      type="password"
-      id="pinInput"
-      placeholder="Enter PIN"
-      style="
-        width: 100%;
-        padding: 12px;
-        font-size: 16px;
-        border: 1px solid #e5e7eb;
-        border-radius: 10px;
-        margin-bottom: 15px;
-        text-align: center;
-        letter-spacing: 3px;
-      "
-    >
-
-    <button
-      onclick="verifyPIN()"
-      style="
-        width: 100%;
-        padding: 12px;
-        background: #111827;
-        color: white;
-        font-size: 15px;
-        font-weight: 600;
-        border: none;
-        border-radius: 10px;
-        cursor: pointer;
-      "
-    >
-      Verify Access
-    </button>
-
-    <p id="pinError" style="color: red; font-size: 13px; margin-top: 10px; display: none;">
-      Invalid PIN. Access Denied.
-    </p>
-  </div>
-</div>
-
-
 <div class="container">
 
   <!-- HEADER -->
@@ -335,37 +246,37 @@
     </div>
 
     <div class="doc-item">
-      <h3>Owner Emirates ID (Front)</h3>
+      <h3>Employee Emirates ID (Front)</h3>
       <img src="docs/ansareidfront.jpeg" alt="Emirates ID Front">
     </div>
 
     <div class="doc-item">
-      <h3>Owner Emirates ID (Back)</h3>
+      <h3>Employee Emirates ID (Back)</h3>
       <img src="docs/ansareidback.jpeg" alt="Emirates ID Back">
     </div>
 
     <div class="doc-item">
-      <h3>Owner Emirates ID (Front)</h3>
+      <h3>Employee Emirates ID (Front)</h3>
       <img src="docs/basheereidfr.jpeg" alt="Emirates ID Front">
     </div>
 
     <div class="doc-item">
-      <h3>Owner Emirates ID (Back)</h3>
+      <h3>Employee Emirates ID (Back)</h3>
       <img src="docs/basheereidback.jpeg" alt="Emirates ID Back">
     </div>
 
     <div class="doc-item">
-      <h3>Owner Emirates ID (Front)</h3>
+      <h3>Employee Emirates ID (Front)</h3>
       <img src="docs/abdulnasereidfr.jpeg" alt="Emirates ID Front">
     </div>
 
     <div class="doc-item">
-      <h3>Owner Emirates ID (Front)</h3>
+      <h3>Employee Emirates ID (Front)</h3>
       <img src="docs/ashrafeidfr.jpeg" alt="Emirates ID Front">
     </div>
 
     <div class="doc-item">
-      <h3>Owner Visa / Iqama</h3>
+      <h3>Employee Visa / Iqama</h3>
       <img src="docs/abdulnaseriqama.jpeg" alt="Owner Visa">
     </div>
 
@@ -408,22 +319,6 @@
     if (e.target === modal) closeImage();
   });
 
-
-
-
-
-  const correctPIN = "2045"; // Change this PIN
-
-  function verifyPIN() {
-    const entered = document.getElementById("pinInput").value;
-    const error = document.getElementById("pinError");
-
-    if (entered === correctPIN) {
-      document.getElementById("pinScreen").style.display = "none";
-    } else {
-      error.style.display = "block";
-    }
-  }
 </script>
 
 </body>
