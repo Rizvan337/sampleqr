@@ -2,305 +2,386 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Official Company Verification Portal</title>
+  <title>Official Business Verification – Government Portal</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Official company document verification portal">
 
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
 
     body {
-      background: linear-gradient(180deg, #f4f7fb 0%, #e9eef5 100%);
-      padding: 30px 15px;
+      background: #f3f5f9;
+      padding: 20px 10px;
       color: #1f2937;
     }
 
     .container {
-      max-width: 1000px;
+      max-width: 980px;
       margin: auto;
     }
 
-   
+    /* Header */
     .header {
-      background: #ffffff;
-      padding: 25px;
-      border-radius: 20px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid #e5e7eb;
       display: flex;
-      gap: 20px;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
       flex-wrap: wrap;
-      margin-bottom: 25px;
+      margin-bottom: 15px;
     }
 
     .header-left {
       display: flex;
-      gap: 20px;
       align-items: center;
+      gap: 15px;
     }
 
     .logo {
-      width: 90px;
-      height: 90px;
+      width: 75px;
+      height: 75px;
       object-fit: contain;
-      border-radius: 16px;
-      background: #f1f5f9;
-      padding: 10px;
+      background: #f9fafb;
       border: 1px solid #e5e7eb;
+      padding: 8px;
+      border-radius: 10px;
     }
 
     .company-info h1 {
-      font-size: 26px;
+      font-size: 22px;
       font-weight: 700;
-      letter-spacing: 0.2px;
     }
 
     .company-info p {
       font-size: 14px;
       color: #6b7280;
-      margin-top: 4px;
     }
 
-    .badge {
-      background: #e0f2fe;
-      color: #0369a1;
-      padding: 8px 14px;
-      border-radius: 999px;
+    .verified-badge {
+      background: #e6f4ea;
+      color: #067647;
+      padding: 8px 15px;
+      border-radius: 50px;
       font-size: 13px;
       font-weight: 600;
-      border: 1px solid #bae6fd;
+      border: 1px solid #a7f3d0;
     }
 
-    
-    .details {
-      background: #ffffff;
-      padding: 25px;
-      border-radius: 20px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-      margin-bottom: 25px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 16px;
-    }
-
-    .detail-box {
-      background: #f8fafc;
-      padding: 18px;
-      border-radius: 14px;
-      border: 1px solid #e5e7eb;
-    }
-
-    .detail-title {
+    /* Notice Bar */
+    .notice {
+      background: #fff8e1;
+      border: 1px solid #fde68a;
+      color: #92400e;
+      padding: 12px 15px;
+      border-radius: 10px;
       font-size: 13px;
-      color: #6b7280;
-      margin-bottom: 4px;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
+      margin-bottom: 20px;
+      text-align: center;
+      font-weight: 500;
     }
 
-    .detail-value {
-      font-size: 16px;
-      font-weight: 600;
-    }
-
-    
+    /* Section Title */
     .section-title {
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 700;
-      margin: 15px 0 10px 5px;
+      margin: 20px 0 10px;
+      padding-left: 3px;
     }
 
+    /* Gallery */
     .doc-gallery {
-      display: flex;
-      flex-direction: column;
-      gap: 25px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 15px;
     }
 
     .doc-item {
       background: #ffffff;
-      padding: 20px;
-      border-radius: 18px;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.06);
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      border: 1px solid #f1f5f9;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 15px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.03);
+      cursor: pointer;
     }
 
     .doc-item h3 {
-      font-size: 18px;
+      font-size: 15px;
+      margin-bottom: 10px;
       font-weight: 600;
-      color: #1f2937;
+      color: #374151;
     }
 
     .doc-item img {
       width: 100%;
-      border-radius: 12px;
+      border-radius: 10px;
       object-fit: contain;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-    }
-
-    
-    .footer {
-      margin-top: 30px;
-      background: #ffffff;
-      padding: 20px;
-      border-radius: 18px;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.05);
-      font-size: 13px;
-      color: #6b7280;
-      text-align: center;
       border: 1px solid #f1f5f9;
     }
 
-    @media (max-width: 600px) {
-      .logo { width: 70px; height: 70px; }
-      .company-info h1 { font-size: 20px; }
+    /* Footer */
+    .footer {
+      margin-top: 30px;
+      background: #ffffff;
+      padding: 15px;
+      border-radius: 12px;
+      border: 1px solid #e5e7eb;
+      font-size: 12px;
+      color: #6b7280;
+      text-align: center;
     }
 
-
     /* Fullscreen Image Modal */
-.image-modal {
-  display: none;
-  position: fixed;
-  z-index: 9999;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.85);
-  justify-content: center;
-  align-items: center;
-}
+    .image-modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.87);
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 10px;
+    }
 
-.image-modal img {
-  max-width: 95%;
-  max-height: 90%;
-  border-radius: 12px;
-  box-shadow: 0 20px 60px rgba(255,255,255,0.15);
-}
+    .image-modal img {
+      max-width: 95%;
+      max-height: 90%;
+      border-radius: 10px;
+    }
 
-.close-btn {
-  position: absolute;
-  top: 20px;
-  right: 25px;
-  font-size: 40px;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  background: rgba(0,0,0,0.5);
-  padding: 5px 15px;
-  border-radius: 50%;
-}
-
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 25px;
+      font-size: 35px;
+      color: white;
+      cursor: pointer;
+      background: rgba(0,0,0,0.6);
+      padding: 4px 14px;
+      border-radius: 50%;
+    }
   </style>
 </head>
 <body>
 
+<!-- PIN LOGIN SCREEN -->
+<div id="pinScreen" style="
+  position: fixed;
+  inset: 0;
+  background: #f3f5f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+">
+
+  <div style="
+    background: white;
+    padding: 30px 25px;
+    border-radius: 14px;
+    width: 100%;
+    max-width: 360px;
+    text-align: center;
+    border: 1px solid #e5e7eb;
+  ">
+
+    <h2 style="font-size: 20px; margin-bottom: 10px;">Secure Access</h2>
+    <p style="font-size: 13px; color: #6b7280; margin-bottom: 20px;">
+      Enter the official PIN to view business documents
+    </p>
+
+    <input
+      type="password"
+      id="pinInput"
+      placeholder="Enter PIN"
+      style="
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+        border: 1px solid #e5e7eb;
+        border-radius: 10px;
+        margin-bottom: 15px;
+        text-align: center;
+        letter-spacing: 3px;
+      "
+    >
+
+    <button
+      onclick="verifyPIN()"
+      style="
+        width: 100%;
+        padding: 12px;
+        background: #111827;
+        color: white;
+        font-size: 15px;
+        font-weight: 600;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+      "
+    >
+      Verify Access
+    </button>
+
+    <p id="pinError" style="color: red; font-size: 13px; margin-top: 10px; display: none;">
+      Invalid PIN. Access Denied.
+    </p>
+  </div>
+</div>
+
+
 <div class="container">
 
-  
+  <!-- HEADER -->
   <div class="header">
     <div class="header-left">
-      <img src="docs/hotelmilanp.png" class="logo" alt="Company Logo">
       <div class="company-info">
-        <h1>Falcon Group of Companies</h1>
-        <p>Official Business Verification Portal</p>
+        <h1>KHALIFA OBAID AL HASS READYMADE GARMENTS EST.</h1>
+        <p>Shop No: 12 / 45 – Industrial Area, UAE</p>
       </div>
+      
     </div>
-    <div class="badge">Verified Business</div>
+    <div class="verified-badge">Verified Business</div>
   </div>
 
-   
-   <!-- <div class="details">
-    <div class="detail-box">
-      <div class="detail-title">Business Name</div>
-      <div class="detail-value">Falcon Restaurant LLC</div>
-    </div>
+  <!-- OFFICIAL NOTICE -->
+  <div class="notice">
+    This portal is created for official government inspection and business verification purposes only.
+    Unauthorized use is strictly prohibited.
+  </div>
 
-    <div class="detail-box">
-      <div class="detail-title">License Number</div>
-      <div class="detail-value">UAE-TRD-XXXXXX</div>
-    </div>
-
-    <div class="detail-box">
-      <div class="detail-title">Location</div>
-      <div class="detail-value">Dubai, United Arab Emirates</div>
-    </div>
-
-    <div class="detail-box">
-      <div class="detail-title">Contact</div>
-      <div class="detail-value">+971 5X XXX XXXX</div>
-    </div>
-  </div> -->
-
-  
-  <h2 class="section-title">Shop Photo</h2>
+  <!-- SHOP PHOTO -->
+  <h2 class="section-title">Shop Image</h2>
   <div class="doc-gallery">
     <div class="doc-item">
-      <h3>Front View of the Shop</h3>
-      <img src="docs/li5.jpg" alt="Shop Front">
+      <h3>Shop Front View</h3>
+      <img src="docs/shoppic.jpeg" alt="Shop Image">
     </div>
   </div>
 
-  
-  <h2 class="section-title">Official Documents</h2>
+  <!-- DOCUMENTS -->
+  <h2 class="section-title">Registered Business Documents</h2>
   <div class="doc-gallery">
+
     <div class="doc-item">
-      <h3>Trade License</h3>
-      <img src="docs/li1.jpg" alt="Trade License">
+      <h3>Commercial License</h3>
+      <img src="docs/commerciallicense.jpeg" alt="Commercial License">
     </div>
 
     <div class="doc-item">
-      <h3>Company Certificate</h3>
-      <img src="docs/li2.jpg" alt="Company Certificate">
+      <h3>Tenancy Contract</h3>
+      <img src="docs/tenancyContract.jpeg" alt="Tenancy Contract">
     </div>
 
     <div class="doc-item">
-      <h3>Company Profile</h3>
-      <img src="docs/li3.jpg" alt="Company Profile">
+      <h3>Tenancy Registration Certificate</h3>
+      <img src="docs/tenancyContractRegistrationCertificate.jpeg" alt="Tenancy Certificate">
     </div>
+
+    <div class="doc-item">
+      <h3>Employee Contract</h3>
+      <img src="docs/ashrafEmployeeContract.jpeg" alt="Employee Contract">
+    </div>
+
+    <div class="doc-item">
+      <h3>Owner Emirates ID (Front)</h3>
+      <img src="docs/ansareidfront.jpeg" alt="Emirates ID Front">
+    </div>
+
+    <div class="doc-item">
+      <h3>Owner Emirates ID (Back)</h3>
+      <img src="docs/ansareidback.jpeg" alt="Emirates ID Back">
+    </div>
+
+    <div class="doc-item">
+      <h3>Owner Emirates ID (Front)</h3>
+      <img src="docs/basheereidfr.jpeg" alt="Emirates ID Front">
+    </div>
+
+    <div class="doc-item">
+      <h3>Owner Emirates ID (Back)</h3>
+      <img src="docs/basheereidback.jpeg" alt="Emirates ID Back">
+    </div>
+
+    <div class="doc-item">
+      <h3>Owner Emirates ID (Front)</h3>
+      <img src="docs/abdulnasereidfr.jpeg" alt="Emirates ID Front">
+    </div>
+
+    <div class="doc-item">
+      <h3>Owner Emirates ID (Front)</h3>
+      <img src="docs/ashrafeidfr.jpeg" alt="Emirates ID Front">
+    </div>
+
+    <div class="doc-item">
+      <h3>Owner Visa / Iqama</h3>
+      <img src="docs/abdulnaseriqama.jpeg" alt="Owner Visa">
+    </div>
+
+    <!-- Add more documents as needed -->
+
   </div>
 
+  <!-- FOOTER -->
   <div class="footer">
-    This is an official company document verification portal. All documents are protected and used for official reference purposes only.
+    © 2025 Official Business Verification System. Documents displayed are for legal and regulatory reference only.
   </div>
 
 </div>
 
-<!-- Fullscreen Image Viewer -->
-<div id="imageModal" class="image-modal">
-    <span class="close-btn" onclick="closeImage()">&times;</span>
-    <img id="fullImage" src="">
-  </div>
-  
 
-  <script>
-    const modal = document.getElementById("imageModal");
-    const fullImage = document.getElementById("fullImage");
-  
-    // Open image
-    document.querySelectorAll(".doc-item img").forEach(img => {
-      img.addEventListener("click", function () {
-        modal.style.display = "flex";
-        fullImage.src = this.src;
-      });
+<!-- IMAGE MODAL -->
+<div id="imageModal" class="image-modal">
+  <span class="close-btn" onclick="closeImage()">&times;</span>
+  <img id="fullImage" src="">
+</div>
+
+<script>
+  const modal = document.getElementById("imageModal");
+  const fullImage = document.getElementById("fullImage");
+
+  document.querySelectorAll(".doc-item img").forEach(img => {
+    img.addEventListener("click", function () {
+      modal.style.display = "flex";
+      fullImage.src = this.src;
     });
-  
-    // Close image
-    function closeImage() {
-      modal.style.display = "none";
-      fullImage.src = "";
+  });
+
+  function closeImage() {
+    modal.style.display = "none";
+    fullImage.src = "";
+  }
+
+  modal.addEventListener("click", function (e) {
+    if (e.target === modal) closeImage();
+  });
+
+
+
+
+
+  const correctPIN = "2045"; // Change this PIN
+
+  function verifyPIN() {
+    const entered = document.getElementById("pinInput").value;
+    const error = document.getElementById("pinError");
+
+    if (entered === correctPIN) {
+      document.getElementById("pinScreen").style.display = "none";
+    } else {
+      error.style.display = "block";
     }
-  
-    // Close when clicking outside image
-    modal.addEventListener("click", function (e) {
-      if (e.target === modal) {
-        closeImage();
-      }
-    });
-  </script>
-  
+  }
+</script>
+
 </body>
 </html>
